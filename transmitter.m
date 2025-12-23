@@ -17,7 +17,7 @@ function cp_txsignal_t = tx(rawsymbols, gtx_t, N_cp, delay_max, doppler_max, M, 
     for m = 1:M
         for n = 1:N
             % Check if the current position is outside the guard band around the pilot
-            if (m < delaycenter_idx-delay_max || m > delaycenter_idx+delay_max) && (n < dopplercenter_idx-doppler_max || n > dopplercenter_idx+doppler_max)
+            if ~((m >= delaycenter_idx-delay_max && m <= delaycenter_idx+delay_max) && (n >= dopplercenter_idx-doppler_max && n <= dopplercenter_idx+doppler_max))
                 ddgrid(m,n) = rawsymbols(idx);
                 idx = idx + 1;
             end
