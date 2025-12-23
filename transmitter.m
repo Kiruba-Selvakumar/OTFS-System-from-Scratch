@@ -7,6 +7,8 @@ function cp_txsignal_t = tx(rawsymbols, gtx_t, N_cp, delay_max, doppler_max, M, 
     % Introduce pilot at center of the grid
     delaycenter_idx = floor(M/2) + rem(M,2);
     dopplercenter_idx = floor(N/2) + rem(N,2);
+    ddgrid(delaycenter_idx, dopplercenter_idx) = 1;
+
 
     % Surround pilot symbol with guard band of zeros (they've been set to zero already)
 
