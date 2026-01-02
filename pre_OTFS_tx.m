@@ -66,7 +66,7 @@ function cp_txsignal_t = OTFS_tx(symbolstream, delay_max, doppler_max, M, N, gtx
     % Vectorisation of the Pulse shaped Delay Time grid. Columns stacked below each other
     txsignal_t = reshape(pulseShaped_dtgrid, [], 1);
 
-    % Add CP to the transmitted signal
+    % Add CP to the signal 
     cp_txsignal_t = [txsignal_t(end-N_cp+1:end); txsignal_t]; % Add CP of length N_cp
 end
 
